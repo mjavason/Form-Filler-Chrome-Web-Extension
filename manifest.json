@@ -1,0 +1,10 @@
+{
+    "manifest_version": 3,
+    "name": "Form Filler Extension",
+    "description": "Basic chrome extension to automatically fill form fields in web pages with previously stored values.",
+    "version": "1.0",
+    "action": {
+      "default_popup": "index.html",
+      "default_icon": "favicon.png"
+    }
+  }
