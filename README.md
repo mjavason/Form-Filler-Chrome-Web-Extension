@@ -1,2 +1,2 @@
-# Form-Filler-Chrome-Web-Extension
-Basic chrome extension to automatically fill form fields in web pages with previously stored values.
+# Zen-Mode-Web-Extension
+Basic web extension that disables all media including videos, images, objects and iframes on a webpage, leaving behind only text for distraction free reading.
