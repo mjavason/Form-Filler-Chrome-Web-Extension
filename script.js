@@ -14,7 +14,7 @@ function darkTheme() {
   }
 }
 
-// Function to remove all images, videos, audio, iframes, embed, object elements, disable links, and set background and text color
+// Function to remove all images, videos, audio, iframes, embed, object elements, and set background and text color
 function removeMediaAndDisableLinks() {
   // Array of selectors for elements to be removed
   const selectors = ['img', 'video', 'audio', 'iframe', 'embed', 'object'];
@@ -24,27 +24,18 @@ function removeMediaAndDisableLinks() {
     document.querySelectorAll(selector).forEach((element) => element.remove());
   });
 
-  // Disable all links
-  document.querySelectorAll('a').forEach((link) => {
-    link.style.pointerEvents = 'none'; // Disable clicking
-    link.style.color = 'blue'; // Keep them looking like links
-    link.style.textDecoration = 'underline'; // Add underline for link appearance
-  });
-
-  // Set background color to white
-  //   document.body.style.backgroundColor = 'white';
-
+  // Set background color and text color based on theme
   if (darkTheme()) {
     // Set all text color to white
     document.querySelectorAll('*').forEach((element) => {
-      element.style.color = 'white'; // Set text color to black
-      element.style.backgroundColor = 'black';
+      element.style.color = 'white'; // Set text color to white
+      element.style.backgroundColor = 'black'; // Set background color to black
     });
   } else {
     // Set all text color to black
     document.querySelectorAll('*').forEach((element) => {
       element.style.color = 'black'; // Set text color to black
-      element.style.backgroundColor = 'white';
+      element.style.backgroundColor = 'white'; // Set background color to white
     });
   }
 
@@ -81,7 +72,7 @@ function removeMediaAndDisableLinks() {
   });
 }
 
-// Function to hide all media elements and disable links
+// Function to hide all media elements
 function hideMediaAndDisableLinks() {
   zenModeActive = true;
 
@@ -95,21 +86,9 @@ function hideMediaAndDisableLinks() {
       element.style.display = 'none'; // Hide element
     });
   });
-
-  // Disable all links
-  document.querySelectorAll('a').forEach((link) => {
-    link.dataset.originalPointerEvents = link.style.pointerEvents; // Save original pointer events
-    link.dataset.originalColor = link.style.color; // Save original color
-    link.dataset.originalTextDecoration = link.style.textDecoration; // Save original text decoration
-
-    link.style.pointerEvents = 'none'; // Disable clicking
-    link.style.color = 'blue'; // Keep them looking like links
-    link.style.textDecoration = 'underline'; // Add underline for link appearance
-  });
-
 }
 
-// Function to restore all media elements and re-enable links
+// Function to restore all media elements
 function restoreMediaAndEnableLinks() {
   zenModeActive = false;
 
@@ -125,22 +104,6 @@ function restoreMediaAndEnableLinks() {
       }
     });
   });
-
-  // Re-enable all links
-  document.querySelectorAll('a').forEach((link) => {
-    if (link.dataset.originalPointerEvents !== undefined) {
-      link.style.pointerEvents = link.dataset.originalPointerEvents; // Restore original pointer events
-      delete link.dataset.originalPointerEvents; // Clean up data attribute
-    }
-    if (link.dataset.originalColor !== undefined) {
-      link.style.color = link.dataset.originalColor; // Restore original color
-      delete link.dataset.originalColor; // Clean up data attribute
-    }
-    if (link.dataset.originalTextDecoration !== undefined) {
-      link.style.textDecoration = link.dataset.originalTextDecoration; // Restore original text decoration
-      delete link.dataset.originalTextDecoration; // Clean up data attribute
-    }
-  });
 }
 
 // Function to handle keyboard shortcuts
@@ -150,8 +113,6 @@ function handleKeyboardShortcut(event) {
     // Prevent the default action if necessary (e.g., undo in some applications)
     event.preventDefault();
 
-    // console.log('Ctrl + Z was pressed!');
-
     // Call the function to remove media elements or restore them
     zenModeActive ? restoreMediaAndEnableLinks() : hideMediaAndDisableLinks();
   }
@@ -160,8 +121,6 @@ function handleKeyboardShortcut(event) {
   if (event.ctrlKey && event.key === 'z' && event.altKey) {
     // Prevent the default action if necessary (e.g., undo in some applications)
     event.preventDefault();
-
-    // console.log('Ctrl + Alt + Z was pressed!');
 
     removeMediaAndDisableLinks();
   }
