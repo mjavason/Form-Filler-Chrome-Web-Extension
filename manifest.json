@@ -1,10 +1,16 @@
 {
-    "manifest_version": 3,
-    "name": "Form Filler Extension",
-    "description": "Basic chrome extension to automatically fill form fields in web pages with previously stored values.",
-    "version": "1.0",
-    "action": {
-      "default_popup": "index.html",
-      "default_icon": "favicon.png"
-    }
+  "manifest_version": 3,
+  "name": "Form Filler Extension",
+  "description": "Basic chrome extension to automatically fill form fields in web pages with previously stored values.",
+  "version": "1.0",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "favicon/favicon-32x32.png"
+  },
+  "icons": {
+    "16": "favicon/favicon-16x16.png",
+    "32": "favicon/favicon-32x32.png",
+    "192": "favicon/android-chrome-192x192.png",
+    "512": "favicon/android-chrome-512x512.png"
   }
+}
