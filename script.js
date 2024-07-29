@@ -29,13 +29,13 @@ function removeMediaAndDisableLinks() {
     // Set all text color to white
     document.querySelectorAll('*').forEach((element) => {
       element.style.color = 'white'; // Set text color to white
-      element.style.backgroundColor = 'black'; // Set background color to black
+      element.style.backgroundColor = '#323434'; // Set background color to black
     });
   } else {
     // Set all text color to black
     document.querySelectorAll('*').forEach((element) => {
       element.style.color = 'black'; // Set text color to black
-      element.style.backgroundColor = 'white'; // Set background color to white
+      element.style.backgroundColor = '#f5f5f5'; // Set background color to white
     });
   }
 
