@@ -12,5 +12,12 @@
     "32": "favicon/favicon-32x32.png",
     "192": "favicon/android-chrome-192x192.png",
     "512": "favicon/android-chrome-512x512.png"
-  }
+  },
+
+  "content_scripts": [
+    {
+      "js": ["script.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
