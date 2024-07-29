@@ -1,5 +1,4 @@
 let zenModeActive = false;
-let observer;
 
 // Function to check the user's preferred color scheme
 function darkTheme() {
@@ -50,7 +49,7 @@ function removeMediaAndDisableLinks() {
   }
 
   // Create a MutationObserver to watch for changes in the DOM
-  let observer = new MutationObserver((mutationsList) => {
+  const observer = new MutationObserver((mutationsList) => {
     for (const mutation of mutationsList) {
       if (mutation.type === 'childList') {
         // Check added nodes for any media elements
